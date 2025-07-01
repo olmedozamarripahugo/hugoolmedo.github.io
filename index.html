@@ -3,17 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Radio Hugo Olmedo</title>
+  <title>Hugo Olmedo Online</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header img {
+      margin-top: 20px;
+      width: 180px;
+    }
+    h1 {
+      margin: 10px 0;
+      font-size: 2em;
+    }
+    audio {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 400px;
+    }
+    iframe {
+      border: none;
+      margin: 20px auto;
+      width: 90%;
+      height: 250px;
+      max-width: 640px;
+      display: block;
+    }
+    .radio-btn {
+      margin: 20px;
+      display: inline-block;
+      padding: 12px 24px;
+      background: gold;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body style="text-align:center; font-family: sans-serif;">
-  <h1>Bienvenido a Hugo Olmedo Online</h1>
-  <p>Evangelio del día y transmisión de radio.</p>
+<body>
+  <header>
+    <img src="logo_hugo.webp" alt="Hugo Olmedo Logo" />
+    <h1>Bienvenido a Hugo Olmedo Online</h1>
+    <p>Evangelio diario y transmisiones en vivo</p>
+  </header>
 
-  <audio controls autoplay>
-    <source src="evangelio_diario.mp3" type="audio/mpeg" />
-    Tu navegador no soporta audio HTML5.
-  </audio>
+  <section>
+    <h2>🎧 Escucha el Evangelio de Hoy</h2>
+    <audio controls autoplay>
+      <source src="evangelio_diario.mp3" type="audio/mpeg" />
+      Tu navegador no soporta audio HTML5.
+    </audio>
+  </section>
 
-  <p>Sitio en construcción. ¡Gracias por visitarnos!</p>
+  <section>
+    <h2>📺 Transmisión en Vivo</h2>
+    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fparroquia.de.guadalupe.bonfil.campeche%2Fvideos%2F" allowfullscreen></iframe>
+  </section>
+
+  <section>
+    <h2>📻 Escuchar Radio en Vivo</h2>
+    <a class="radio-btn" href="https://tulinkderadio.com/stream.mp3" target="_blank">Escuchar Ahora</a>
+  </section>
 </body>
 </html>
