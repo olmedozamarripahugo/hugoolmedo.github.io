@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TV en vivo</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmisión en Vivo - Hugo Drones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background-color: #222;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <img src="assets/img/logo.png" alt="Logo">
-  <h1>Hugo Olmedo Online</h1>
-</header>
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="radio.html">Radio</a>
-  <a href="tv.html">TV</a>
-  <a href="audios.html">Audios</a>
-  <a href="archivos.html">Archivos</a>
-  <a href="contacto.html">Contacto</a>
-</nav>
+  <header>📡 En Vivo desde Hugo Drones</header>
+  
+  <iframe
+    src="https://www.youtube.com/embed/live_stream?channel=UCN8X-sX-ytr_6rpYDEgA_Cw"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
 
-<section>
-  <h2>📺 Transmisión en vivo</h2>
-  <p>Aquí aparecerán las transmisiones en vivo cuando estén disponibles.</p>
-  <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/parroquia.de.guadalupe.bonfil.campeche/videos/" allowfullscreen></iframe>
-</section>
-
-<footer>
-  © 2025 Hugo Olmedo — Todos los derechos reservados
-</footer>
+  <footer style="background-color:#111; padding:1rem; font-size:0.9rem;">
+    &copy; 2025 Hugo Drones - Transmisiones en vivo desde el cielo.
+  </footer>
 </body>
 </html>
