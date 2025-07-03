@@ -1,75 +1,115 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hugo Olmedo Online</title>
+  <title>Hugo Olmedo</title>
   <style>
     body {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
     }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background-color: #1a1a1a;
+    }
+
     header img {
-      margin-top: 20px;
-      width: 180px;
+      height: 60px;
+      margin-right: 1rem;
     }
-    h1 {
-      margin: 10px 0;
-      font-size: 2em;
+
+    header h1 {
+      font-size: 1.8rem;
     }
+
+    .banner {
+      background-image: url('banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner h2 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 2rem;
+    }
+
+    section {
+      padding: 2rem;
+    }
+
     audio {
-      margin: 20px auto;
-      width: 80%;
-      max-width: 400px;
+      width: 100%;
     }
+
     iframe {
+      width: 100%;
+      height: 400px;
       border: none;
-      margin: 20px auto;
-      width: 90%;
-      height: 250px;
-      max-width: 640px;
-      display: block;
     }
-    .radio-btn {
-      margin: 20px;
-      display: inline-block;
-      padding: 12px 24px;
-      background: gold;
-      color: black;
+
+    .files a {
+      display: block;
+      color: #0af;
+      margin: 0.5rem 0;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo_hugo.webp" alt="Hugo Olmedo Logo" />
-    <h1>Bienvenido a Hugo Olmedo Online</h1>
-    <p>Evangelio diario y transmisiones en vivo</p>
-  </header>
 
-  <section>
-    <h2>🎧 Escucha el Evangelio de Hoy</h2>
-    <audio controls autoplay>
-      <source src="evangelio_diario.mp3" type="audio/mpeg" />
-      Tu navegador no soporta audio HTML5.
-    </audio>
-  </section>
+<header>
+  <img src="logo.png" alt="Logo Hugo Olmedo">
+  <h1>Hugo Olmedo</h1>
+</header>
 
-  <section>
-    <h2>📺 Transmisión en Vivo</h2>
-    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fparroquia.de.guadalupe.bonfil.campeche%2Fvideos%2F" allowfullscreen></iframe>
-  </section>
+<div class="banner">
+  <h2>Fe, vida y cultura</h2>
+</div>
 
-  <section>
-    <h2>📻 Escuchar Radio en Vivo</h2>
-    <a class="radio-btn" href="https://c19.radioboss.fm:8169/stream" target="_blank">Escuchar Ahora</a>
-  </section>
+<section id="radio">
+  <h2>🎧 Radio en línea</h2>
+  <audio controls autoplay>
+    <source src="https://tu-stream-radio.com/audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+</section>
+
+<section id="tv">
+  <h2>📺 Transmisión en vivo</h2>
+  <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/parroquia.de.guadalupe.bonfil.campeche/videos/" allowfullscreen></iframe>
+</section>
+
+<section id="archivos">
+  <h2>📁 Archivos descargables</h2>
+  <div class="files">
+    <a href="docs/boletin.pdf" download>📄 Boletín parroquial</a>
+    <a href="audios/evangelio.mp3" download>🎤 Evangelio del día</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Hugo Olmedo — Todos los derechos reservados
+</footer>
+
 </body>
 </html>
-
