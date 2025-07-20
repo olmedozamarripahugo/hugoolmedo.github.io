@@ -2,10 +2,168 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inicio - Hugo Olmedo</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="assets/img/logo.png" type="image/png" />
+  <style>
+    /* --- Estilos base --- */
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: #111;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+      max-height: 120px;
+      object-fit: contain;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #222;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ff9900;
+      color: #000;
+    }
+
+    .banner {
+      width: 100%;
+      background-color: #333;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 900px;
+      padding: 20px;
+      width: 90%;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    footer {
+      width: 100%;
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    /* --- Sección para subir y mostrar archivos --- */
+    .upload-section {
+      margin: 30px 0;
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .upload-section label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .upload-section input[type="file"] {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .file-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .file-card {
+      background: #111;
+      border-radius: 8px;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 0 5px #ff9900;
+    }
+
+    .file-card audio,
+    .file-card video {
+      max-width: 100%;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .file-card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .file-card button {
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: #ff9900;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .file-card button:hover {
+      background-color: #cc7a00;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .file-card {
+        width: 100%;
+      }
+
+      .banner {
+        font-size: 1.5rem;
+        padding: 25px 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -23,7 +181,7 @@
   </nav>
 
   <div class="banner">
-    <h2>hugoolmedo.online</h2>
+    hugoolmedo.online
   </div>
 
   <section>
@@ -31,10 +189,53 @@
     <p>
       Este sitio está dedicado a la fe, la vida y la cultura. Aquí encontrarás transmisiones en vivo, música, reflexiones, documentos y más.
     </p>
+
+    <!-- Sección para subir archivos -->
+    <div class="upload-section">
+      <label for="fileInput">Sube archivos (audio, video, imágenes):</label>
+      <input type="file" id="fileInput" multiple accept="audio/*,video/*,image/*" />
+      <div id="fileList" class="file-list"></div>
+    </div>
   </section>
 
   <footer>
     © 2025 Hugo Olmedo — Todos los derechos reservados
   </footer>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+
+    fileInput.addEventListener('change', () => {
+      fileList.innerHTML = ''; // Limpia lista antes
+
+      Array.from(fileInput.files).forEach(file => {
+        const fileURL = URL.createObjectURL(file);
+        const fileCard = document.createElement('div');
+        fileCard.className = 'file-card';
+
+        let content = '';
+        if (file.type.startsWith('audio/')) {
+          content = `<audio controls src="${fileURL}"></audio>`;
+        } else if (file.type.startsWith('video/')) {
+          content = `<video controls src="${fileURL}"></video>`;
+        } else if (file.type.startsWith('image/')) {
+          content = `<img src="${fileURL}" alt="${file.name}" />`;
+        } else {
+          content = `<p>Archivo: ${file.name}</p>`;
+        }
+
+        fileCard.innerHTML = `
+          ${content}
+          <p title="${file.name}">${file.name.length > 20 ? file.name.slice(0,17) + '...' : file.name}</p>
+          <a href="${fileURL}" download="${file.name}">
+            <button>Descargar</button>
+          </a>
+        `;
+
+        fileList.appendChild(fileCard);
+      });
+    });
+  </script>
 </body>
 </html>
